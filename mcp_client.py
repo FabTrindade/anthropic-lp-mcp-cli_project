@@ -61,7 +61,8 @@ class MCPClient:
         return []
 
     async def read_resource(self, uri: str) -> Any:
-        return await self.session().read_resource(AnyUrl(uri)).contents[0]
+        result=  await self.session().read_resource(AnyUrl(uri))
+        return result.contents[0]
     
     async def cleanup(self):
         await self._exit_stack.aclose()
