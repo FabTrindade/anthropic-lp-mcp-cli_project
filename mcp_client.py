@@ -81,8 +81,10 @@ async def main():
         command="uv",
         args=["run", "mcp_server.py"],
     ) as _client:
-        results = await _client.list_tools()
-        print("Tools:", results)
+        #results = await _client.list_tools()
+        #print("Tools:", results)
+        results = await _client.call_tool("read_doc_contents", {"doc_id": "outlook.pdf"})
+        print("Tool result:", results)
         
 
 if __name__ == "__main__":
